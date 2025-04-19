@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Sfida Velocità Goal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    th {
+      background-color: #444;
+      color: white;
+    }
+    .done {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sfida Velocità Goal (100–150 km/h)</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Velocità</th>
+        <th>Tu</th>
+        <th>Amarildo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Le righe verranno generate via JavaScript -->
+    </tbody>
+  </table>
+
+  <script>
+    const tbody = document.querySelector("tbody");
+
+    for (let i = 100; i <= 150; i++) {
+      const row = document.createElement("tr");
+      const speedCell = document.createElement("td");
+      speedCell.textContent = i + " km/h";
+      row.appendChild(speedCell);
+
+      for (let j = 0; j < 2; j++) {
+        const td = document.createElement("td");
+        td.addEventListener("click", () => {
+          td.classList.toggle("done");
+        });
+        row.appendChild(td);
+      }
+
+      tbody.appendChild(row);
+    }
+  </script>
+</body>
+</html>
